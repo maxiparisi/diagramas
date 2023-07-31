@@ -1,32 +1,32 @@
+import sys
+import config_loader
+
 from diagrams import Cluster, Diagram, Edge
 from diagrams.onprem.compute import Server
 from diagrams.onprem.client import Client
 from diagrams.onprem.database import Oracle
 
-# Leer el archivo de propiedades y guardar los pares clave-valor en un diccionario
-namePropiedades = "rp35.properties"
-with open(namePropiedades) as file:
-    propiedades = {}
-    for line in file:
-        clave, valor = line.strip().split("=", 1)
-        propiedades[clave] = valor.replace(";", "\n")
+ambiente = sys.argv[1]
+
+# Cargar y obtener la configuración modificada
+config = config_loader.cargar_configuracion(ambiente)
 
 # Crear el diagrama y los objetos Cliente, Server y Oracle
 with Diagram(name="Ambiente DESA puesto rapipago", show=True):
     puesto = Client(label="Puesto 3.5")
     
     with Cluster("Service level1"):
-        recargas = Server(propiedades["recargas"])
-        transacciones = Server(propiedades["transacciones"])
-        puma = Server(propiedades["puma"])
+        recargas = Server(config["recargas"])
+        transacciones = Server(config["transacciones"])
+        puma = Server(config["puma"])
 
     with Cluster("Rapipago"):
-        oracle = Oracle(propiedades["oracle"])
+        oracle = Oracle(config["oracle"])
 
     with Cluster("Service level2"):
-        hermes = Server(propiedades["hermes"])
-        ws = Server(propiedades["ws"])
-        sto = Server(propiedades["sto"])
+        hermes = Server(config["hermes"])
+        ws = Server(config["ws"])
+        sto = Server(config["sto"])
     
     # Conectar los objetos utilizando las relaciones definidas en el código original
     puesto >> Edge(color="darkgreen") << puma

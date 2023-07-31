@@ -1,0 +1,9 @@
+{
+    "recargas": "Recargas;recargasd-r35-01.test.gire.com;recargasd-r35-02.test.gire.com",
+    "transacciones": "Transacciones;gem1-r35-01.test.gire.com;gem1-r35-02.test.gire.com;gem1-r35-03.test.gire.com;gem1-r35-04.test.gire.com",
+    "puma": "PUMA",
+    "oracle": "schema:HERMES;schema:RAPIPAGO;schema:xxx",
+    "hermes": "Hermes;hermes-01.test.gire.ent;hermes-02.test.gire.ent",
+    "ws": "WebServices de test",
+    "sto": "STO de test"
+}
