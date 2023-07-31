@@ -5,7 +5,10 @@
 - homo ---> diagrama de arquitectura ambiente de homologación
 - prod ---> diagrama de arquitectura ambiente de producción
 
-  
+Ejemplo para generar el diagrama para desa: 
+~~~
+python .\rp35-architecture.py dev
+~~~
 
 # Para generar png a partir del archivo dot
 
