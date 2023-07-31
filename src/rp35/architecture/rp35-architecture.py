@@ -12,7 +12,7 @@ ambiente = sys.argv[1]
 config = config_loader.cargar_configuracion(ambiente)
 
 # Crear el diagrama y los objetos Cliente, Server y Oracle
-with Diagram(name="Ambiente puesto rapipago (" + ambiente.upper() + ")", show=True):
+with Diagram(name="Ambiente puesto rapipago " + ambiente.upper(), show=True):
     puesto = Client(label="Puesto 3.5")
     
     with Cluster("Service level1"):
