@@ -1,9 +1,9 @@
 import sys
-import config_loader
 
+import config_loader
 from diagrams import Cluster, Diagram, Edge
-from diagrams.onprem.compute import Server
 from diagrams.onprem.client import Client
+from diagrams.onprem.compute import Server
 from diagrams.onprem.database import Oracle
 
 ambiente = sys.argv[1]
@@ -12,7 +12,7 @@ ambiente = sys.argv[1]
 config = config_loader.cargar_configuracion(ambiente)
 
 # Crear el diagrama y los objetos Cliente, Server y Oracle
-with Diagram(name="Ambiente DESA puesto rapipago", show=True):
+with Diagram(name="Ambiente puesto rapipago (" + ambiente.upper() + ")", show=True):
     puesto = Client(label="Puesto 3.5")
     
     with Cluster("Service level1"):
